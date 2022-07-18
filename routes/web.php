@@ -16,3 +16,31 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('total-active-product',
+    \App\Http\Controllers\TotalActiveProductController::class)
+    ->name('total-active-product');
+
+Route::get('total-active-product-not-belong-to-user',
+    \App\Http\Controllers\TotalActiveProductNotBelongToUserController::class)
+    ->name('total-active-product-not-belong-to-user');
+
+Route::get('total-amount-activated-product',
+    \App\Http\Controllers\TotalAmountActivatedProductController::class)
+    ->name('total-amount-activated-product');
+
+Route::get('total-price-activated-product',
+    \App\Http\Controllers\TotalPriceActivatedProductController::class)
+    ->name('total-price-activated-product');
+
+Route::get('total-price-activated-product-per-user',
+    \App\Http\Controllers\TotalPriceActivatedProductPerUserController::class)
+    ->name('total-price-activated-product-per-user');
+
+Route::get('total-user-active-and-verified',
+    \App\Http\Controllers\TotalUsersActiveAndVerifiedController::class)
+    ->name('total-user-active-and-verified');
+
+Route::get('total-user-active-and-verified-and-has-active-product',
+    \App\Http\Controllers\TotalUsersActiveAndVerifiedHasProductController::class)
+    ->name('total-user-active-and-verified-and-has-active-product');

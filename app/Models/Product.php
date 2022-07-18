@@ -10,13 +10,18 @@ class Product extends Model
     use HasFactory;
 
     protected $casts = [
-        'is_active' => 'boolean',
-        'quantity' =>'int',
-        'price' => 'float'
+        'is_active' => 'boolean'
     ];
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class,
+            'user_products',
+            'product_id',
+            'user_id')
+            ->withPivot([
+                'quantity',
+                'price',
+            ]);
     }
 }
