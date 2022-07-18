@@ -34,7 +34,7 @@
 
                             <div class="flex items-center">
                                 <div class="ml-4 text-lg leading-7 dark:text-white" id="total_user_active_and_verified">
-                                    12
+                                    -
                                 </div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
 
                             <div class="flex items-center">
                                 <div class="ml-4 text-lg leading-7 dark:text-white" id="total_user_active_and_verified_and_attached_the_product">
-                                    12
+                                    -
                                 </div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
 
                             <div class="flex items-center">
                                 <div class="ml-4 text-lg leading-7 dark:text-white" id="total_active_product">
-                                    12
+                                    -
                                 </div>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
 
                             <div class="flex items-center">
                                 <div class="ml-4 text-lg leading-7 dark:text-white" id="total_active_product_not_belong_to_user">
-                                    12
+                                    -
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
 
                             <div class="flex items-center">
                                 <div class="ml-4 text-lg leading-7 dark:text-white" id="amount_all_active_product">
-                                    12
+                                    -
                                 </div>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
 
                             <div class="flex items-center">
                                 <div class="ml-4 text-lg leading-7 dark:text-white" id="total_price_of_activate_attached_product">
-                                    12
+                                    -
                                 </div>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
 
                             <div class="flex items-center">
                                 <div class="ml-4 text-lg leading-7 dark:text-white" id="total_price_per_user">
-                                    12
+                                    -
                                 </div>
                             </div>
                         </div>
@@ -124,7 +124,9 @@
                             </div>
 
                             <div class="flex items-center">
-
+                                <div class="ml-4 text-lg leading-7 dark:text-white" id="exchange_rate">
+                                    -
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -198,6 +200,18 @@
 
                 html+= "</ul>"
                 $("#total_price_per_user").html(html);
+            }}
+        );
+
+        $.ajax({
+            dataType: "json",
+            headers: {
+                apikey: "Dm4La08iwApFgqt5SxGvttJNF1qZCG79"
+            },
+            url: "https://api.apilayer.com/exchangerates_data/convert?to=RON&from=USD&amount=1",
+            success: function(result){
+                console.log(result);
+                $("#exchange_rate").html("1 USD to RON = "+ result.info.rate)
             }}
         );
     });
