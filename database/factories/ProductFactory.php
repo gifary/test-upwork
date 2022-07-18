@@ -18,10 +18,8 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' =>  User::factory()->create()->id,
-            'title' => 'product name',
-            'price' => 100,
-            'quantity' => 99,
+            'title' => $this->faker->name,
+            'description' => $this->faker->text,
             'is_active' => true
         ];
     }
